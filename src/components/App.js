@@ -29,12 +29,14 @@ function App() {
 	}
 
 	const addItem = () => {
-		const newTodoObj = {
-			value: inputList,
-			isEditing: false
+		if(inputList !== "") {
+			const newTodoObj = {
+				value: inputList,
+				isEditing: false
+			}
+			setItems(oldItems => [...oldItems, newTodoObj])
+			setInputList("")
 		}
-		setItems(oldItems => [...oldItems, newTodoObj])
-		setInputList("")
 	}
 
 	const deleteItem = (id) => {
